@@ -82,6 +82,5 @@ app.post('/submit', (req, res) => {
 app.get('/logs', (req, res) =>  {
     // list of submitted requests is displayed
     const data = allEntries;
-    console.log(data);
     res.json(data);
 })

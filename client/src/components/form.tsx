@@ -1,8 +1,11 @@
-import {type FormEvent, useState} from "react";
-
-
+import {type ChangeEvent, type FormEvent, useState} from "react";
+import DisplayedData from "./fulldisplay.tsx";
 
 export default function FullForm() {
+
+    const [showTable, setShowTable] = useState(false);
+    const [tableData, setTableData] = useState([]);
+
 
     const [tempRequest, setTempRequest] = useState({
         Name: "",
@@ -12,8 +15,8 @@ export default function FullForm() {
         Comments: "",
         });
 
-    function handleChange(e: React.ChangeEvent<HTMLSelectElement> |
-        React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) {
+    function handleChange(e: ChangeEvent<HTMLSelectElement> |
+        ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) {
         console.log("Change detected:", e.target.name, e.target.value);
         setTempRequest({
             ...tempRequest,
@@ -45,8 +48,8 @@ export default function FullForm() {
         try{
             const response = await fetch('http://localhost:3000/logs',{});
             const logs = await response.json();
-            console.log(logs);
-            return logs;
+            setTableData(logs);
+            setShowTable(true);
         }
         catch(error){
             console.log(error);
@@ -107,8 +110,9 @@ export default function FullForm() {
                 <button type="submit">Submit</button>
                 <br/>
                 <br/>
-                <button type="button" className="logs" onClick={handleLogs}>Logs</button>
             </form>
+            <button type="button" className="logs" onClick={handleLogs}>Logs</button>
+            {showTable && DisplayedData(tableData)}
         </>
     )
 }

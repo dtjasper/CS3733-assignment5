@@ -5,9 +5,7 @@ to be done in the same teams of two as in the previous assignments.
 
 ### Enter both of your names below. If we cannot figure out who did the assignment, we cannot grade it!
 
-### Name:  
-  
-### Name:
+### Name: Delia Jasper
   
 ### Enter a description below of what your form does, and what processing of the data is done by the server
 
