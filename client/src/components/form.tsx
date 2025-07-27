@@ -6,13 +6,15 @@ export default function FullForm() {
 
     const [tempRequest, setTempRequest] = useState({
         Name: "",
-        NumYears: 0,
+        NumYears: "",
         FavMakeCat: "",
         FavMakeItem: "",
         Comments: "",
         });
 
-    function handleChange(e: any) {
+    function handleChange(e: React.ChangeEvent<HTMLSelectElement> |
+        React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) {
+        console.log("Change detected:", e.target.name, e.target.value);
         setTempRequest({
             ...tempRequest,
             [e.target.name]: e.target.value
@@ -27,7 +29,7 @@ export default function FullForm() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(tempRequest)// Convert the JavaScript object to a JSON string
+                body: JSON.stringify(tempRequest)
             })
             const responseData = await response.json()
             console.log(responseData)
@@ -56,9 +58,9 @@ export default function FullForm() {
             <form onSubmit={handleSubmit}>
 
                 <label htmlFor="Name">Name: </label>
-                <input id="Name" name={"Name"}
+                <input id="Name" name="Name"
                        value={tempRequest.Name}
-                       onChange={(e) => handleChange(e)}
+                       onChange={handleChange}
                        placeholder={"Name"}
                 />
 
@@ -105,7 +107,7 @@ export default function FullForm() {
                 <button type="submit">Submit</button>
                 <br/>
                 <br/>
-                <button className="logs" onClick={handleLogs}>Logs</button>
+                <button type="button" className="logs" onClick={handleLogs}>Logs</button>
             </form>
         </>
     )

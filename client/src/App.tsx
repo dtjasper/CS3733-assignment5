@@ -1,14 +1,15 @@
 
 import './App.css'
 import FullForm from "./components/form.tsx";
+import Title from "./components/title.tsx";
 
 function App() {
+    return(
+        <>
+            <Title />
+            <FullForm />
+        </>
+        )
+};
 
-  return (
-    <>
-      <FullForm/>
-    </>
-  )
-}
-
-export default App
+export default App;

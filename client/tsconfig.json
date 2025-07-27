@@ -1,10 +1,20 @@
 {
-  "module": "nodenext",
-  "moduleResolution": "nodenext",
-  "target": "esnext",
+  "compilerOptions": {
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "target": "esnext",
+  },
   "files": [],
   "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "ts-node--esm": {
+    "experimentalSpecifierResolution": "node"
+  }
 }
+
