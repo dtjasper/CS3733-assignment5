@@ -5,3 +5,11 @@ export type DataEntry = {
     FavMakeItem: string;
     Comments: string;
 }
+
+export interface statsArray {
+    ClothingVotes: number;
+    StuffedAnimalVotes: number;
+    HouseItemVotes: number;
+    OtherVotes: number;
+    NoVotes: number;
+}

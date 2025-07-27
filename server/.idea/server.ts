@@ -17,14 +17,6 @@ export interface DataEntry {
     Comments: string;
 }
 
-interface statsArray {
-    ClothingVotes: number;
-    StuffedAnimalVotes: number;
-    HouseItemVotes: number;
-    OtherVotes: number;
-    NoVotes: number;
-}
-
 let allEntries: DataEntry[] = [
     { Name: "Delia", NumYears: "5", FavMakeCat: "Clothing", FavMakeItem: "Eye sweater", Comments: "Support the arts"},
     { Name: "Walter", NumYears: "2", FavMakeCat: "Stuffed Animal/Toy", FavMakeItem: "Stuffed snake", Comments: "Still learning!"},
@@ -37,25 +29,24 @@ let allEntries: DataEntry[] = [
 ];
 
 function dataProcessing(allEntries: DataEntry[]) {
-    let curStats: statsArray =
-        {ClothingVotes: 0, StuffedAnimalVotes: 0, HouseItemVotes: 0, OtherVotes: 0, NoVotes: 0};
+    let curStats: number[] = [0, 0, 0, 0, 0];
 
     for(let i = 0; i < allEntries.length; i++) {
         let tempVal = allEntries[i].FavMakeCat;
         if(tempVal == "Clothing") {
-            curStats.ClothingVotes++;
+            curStats[0]++;
         }
         else if(tempVal == "Stuffed Animal/Toy") {
-            curStats.StuffedAnimalVotes++;
+            curStats[1]++;
         }
         else if(tempVal == "Household Item") {
-            curStats.HouseItemVotes++;
+            curStats[2]++;
         }
         else if(tempVal == "Other") {
-            curStats.OtherVotes++;
+            curStats[3]++;
         }
         else {
-            curStats.NoVotes++;
+            curStats[4]++;
         }
     }
     return curStats;

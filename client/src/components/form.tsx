@@ -1,8 +1,14 @@
 import {type ChangeEvent, type FormEvent, useState} from "react";
 import DisplayedData from "./fulldisplay.tsx";
+import {DisplayProcessedData} from "./displayProcessedData.tsx";
 
 export default function FullForm() {
 
+    // Processed data for chart (submit button)
+    const [showChart, setShowChart] = useState(false);
+    const [chartData, setChartData] = useState([]);
+
+    // Array of all responses (log button)
     const [showTable, setShowTable] = useState(false);
     const [tableData, setTableData] = useState([]);
 
@@ -24,6 +30,10 @@ export default function FullForm() {
         });
     }
 
+    function hideChart(){
+        setShowChart(false);
+    }
+
     async function handleSubmit(e: FormEvent<HTMLFormElement>){
         e.preventDefault();
         try {
@@ -34,9 +44,9 @@ export default function FullForm() {
                 },
                 body: JSON.stringify(tempRequest)
             })
-            const responseData = await response.json()
-            console.log(responseData)
-            return responseData;
+            const processedData = await response.json()
+            setChartData(processedData);
+            setShowChart(true);
         }
         catch(error){
             console.log(error);
@@ -109,8 +119,10 @@ export default function FullForm() {
                 <br/>
                 <button type="submit">Submit</button>
                 <br/>
+                <button type="button" onClick={hideChart}>Hide Stats</button>
                 <br/>
             </form>
+            {showChart && DisplayProcessedData(chartData)}
             <button type="button" className="logs" onClick={handleLogs}>Logs</button>
             {showTable && DisplayedData(tableData)}
         </>
