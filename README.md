@@ -9,6 +9,8 @@ to be done in the same teams of two as in the previous assignments.
   
 ### Enter a description below of what your form does, and what processing of the data is done by the server
 
+This form collects data about people who crochet and their preferences. The data is processed by the server as it collects the total number of people who voted for each category (or did not vote). It is displayed by the frontend as a bar graph and a list, but it is processed and held by the server.
+
 ---
 ## Assignment Details
 * Use Webstorm to clone this repository on your computer.
