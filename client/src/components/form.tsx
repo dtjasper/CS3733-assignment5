@@ -68,60 +68,66 @@ export default function FullForm() {
 
     return(
         <>
-            <form onSubmit={handleSubmit}>
+            <div className="flex justify-center">
+                <img src="/crochet1.jpg" alt="an image of yarn, a crochet hook, and scissors." height="400px" width="400px" className="p-2"/>
+                <form onSubmit={handleSubmit} className="pl-3 space-y-3.5 font-serif ">
 
-                <label htmlFor="Name">Name: </label>
-                <input id="Name" name="Name"
-                       value={tempRequest.Name}
-                       onChange={handleChange}
-                       placeholder={"Name"}
-                />
+                    <label htmlFor="Name">Name: </label>
+                    <input id="Name" name="Name"
+                           value={tempRequest.Name}
+                           onChange={handleChange}
+                           placeholder={"Name"}
+                    />
 
-                <br/>
+                    <br/>
 
-                <label htmlFor="NumYears">How Many Years Have You Been Crocheting? </label>
-                <input id="NumYears" name={"NumYears"}
-                       value={tempRequest.NumYears}
-                       onChange={(e) => handleChange(e)}
-                       placeholder={"NumYears"}
-                />
+                    <label htmlFor="NumYears">How Many Years Have You Been Crocheting? </label>
+                    <input id="NumYears" name={"NumYears"}
+                           value={tempRequest.NumYears}
+                           onChange={(e) => handleChange(e)}
+                           placeholder={"NumYears"}
+                    />
 
-                <br/>
+                    <br/>
 
-                <label htmlFor="FavMakeCat">What generally was your favorite thing you have made? </label>
-                <select id="FavMakeCat" name={"FavMakeCat"}
-                       value={tempRequest.FavMakeCat}
-                       onChange={(e) => handleChange(e)}>
-                    <option value="default" unselectable={"on"}>Select your option</option>
-                    <option value="Clothing">Clothing</option>
-                    <option value="Stuffed Animal/Toy">Stuffed Animal/Toy</option>
-                    <option value="Household Item">Household Item</option>
-                    <option value="Other">Other</option>
-                </select>
+                    <label htmlFor="FavMakeCat">What generally was your favorite thing you have made? </label>
+                    <select id="FavMakeCat" name={"FavMakeCat"}
+                           value={tempRequest.FavMakeCat}
+                           onChange={(e) => handleChange(e)}>
+                        <option value="default" unselectable={"on"}>Select your option</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Stuffed Animal/Toy">Stuffed Animal/Toy</option>
+                        <option value="Household Item">Household Item</option>
+                        <option value="Other">Other</option>
+                    </select>
 
-                <br/>
+                    <br/>
 
-                <label htmlFor="FavMakeItem">What specifcally was your favorite item you have ever made? </label>
-                <input id="FavMakeItem" name={"FavMakeItem"}
-                       value={tempRequest.FavMakeItem}
-                       onChange={(e) => handleChange(e)}
-                       placeholder={"Item"}
-                />
+                    <label htmlFor="FavMakeItem">What specifcally was your favorite item you have ever made? </label>
+                    <input id="FavMakeItem" name={"FavMakeItem"}
+                           value={tempRequest.FavMakeItem}
+                           onChange={(e) => handleChange(e)}
+                           placeholder={"Item"}
+                    />
 
-                <br/>
+                    <br/>
 
-                <label htmlFor="Comments">Additional Comments: </label>
-                <textarea id="Comments" name={"Comments"} rows={4} cols={50}
-                          value={tempRequest.Comments}
-                          onChange={(e) => handleChange(e)}
-                />
+                    <label htmlFor="Comments">Additional Comments: </label>
+                    <textarea id="Comments" name={"Comments"} rows={4} cols={50}
+                              value={tempRequest.Comments}
+                              onChange={(e) => handleChange(e)}
+                    />
 
-                <br/>
-                <button type="submit">Submit</button>
-                <br/>
-                <button type="button" onClick={hideChart}>Hide Stats</button>
-                <br/>
-            </form>
+                    <br/>
+                    <button type="submit" className="bg-pink-400 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded-full">
+                        Submit</button>
+                    <br/>
+                    <button type="button" onClick={hideChart} className="bg-pink-700 hover:bg-pink-900 text-white font-bold py-2 px-4 rounded-full">
+                        Hide Stats</button>
+                    <br/>
+                </form>
+                <img src="/crochet2.jpg" alt="an image of crochet flowers in a heart." height="400px" width="400px" className="p-2"/>
+            </div>
             {showChart && DisplayProcessedData(chartData)}
             <button type="button" className="logs" onClick={handleLogs}>Logs</button>
             {showTable && DisplayedData(tableData)}
