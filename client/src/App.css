@@ -17,7 +17,7 @@ html {
     background-color: #fbcfe8;
 }
 
-input, select{
+input, select, textarea{
     outline-style: solid;
     outline-width: 1px;
     padding: 1px 1px 1px 4px;

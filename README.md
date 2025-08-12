@@ -9,6 +9,9 @@ to be done in the same teams of two as in the previous assignments.
   
 ### Enter a description below of what your form does, and what processing of the data is done by the server
 
+This form intakes data about the user's crochet habits and what they like to create. The processing in the server is that it keeps track of how many respondents
+responded with each category of item they like to make. The server gives these numbers back to the client side and they are displayed in a bar graph.
+
 ---
 ## Assignment Details
 * Use Webstorm to clone this repository on your computer.
